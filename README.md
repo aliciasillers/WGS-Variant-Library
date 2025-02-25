@@ -6,6 +6,8 @@ Using the intersect-then-combine approach detailed in Callari et al, 2017 to cal
 
 2. Align with BWA and BBMAP: bwaalign.sh & bbmapalign.sh
 
-3. Realignment with GATK
+3. Sort and index aligned reads: convert.sh
+
+3. Realignment with GATK: gatktarget.sh & gatkrealign.sh
 
 4. Variant calling with Strelka and Mutect2
