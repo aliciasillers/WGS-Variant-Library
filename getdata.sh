@@ -9,10 +9,10 @@
 #SBATCH --error=getdata.err # File to which STDERR will be written
 #SBATCH --mail-type=END,FAIL # Type of email notification- BEGIN,END,FAIL,ALL
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
-#SBATCH --time=8:00:00
-#SBATCH --array=1-80
+#SBATCH --time=4:00:00
+#SBATCH --array=1-10
 
-sra=$(cat sralist.txt | sed -n ${SLURM_ARRAY_TASK_ID}p)
+sra=$(cat sralist1.txt | sed -n ${SLURM_ARRAY_TASK_ID}p)
 
 module load sratoolkit
 
