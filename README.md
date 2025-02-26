@@ -8,6 +8,10 @@ Using the intersect-then-combine approach detailed in Callari et al, 2017 to cal
 
 3. Sort and index aligned reads: convert.sh
 
-3. Realignment with GATK: gatktarget.sh & gatkrealign.sh
+4. Realignment with GATK: gatktarget.sh & gatkrealign.sh
 
-4. Variant calling with Strelka and Mutect2
+5. Variant calling with Strelka and Mutect2: mutect2.sh, strelkaconfig.sh, strelkarun.sh
+
+6. Intersect variants between alignments: intersect1.sh & intersect2.sh
+
+7. Compile variants from both callers
