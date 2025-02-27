@@ -1,0 +1,9 @@
+channels:
+ - conda-forge
+ - bioconda
+ - defaults
+ - btrspg
+dependencies:
+ - java-jdk
+ - shikamaru-gatk3
+ - strelka
