@@ -2,16 +2,18 @@
 
 Using the intersect-then-combine approach detailed in Callari et al, 2017 to call variants among 80+ strawberry varieties. 
 
-1. Downloading publicly available WGS data: getdata.sh, fastq.sh
+1. Download publicly available WGS data: getdata.sh, fastq.sh
 
-2. Align with BWA and BBMAP: bwaindex.sh, bwaalign.sh & bbmapalign.sh
+2. Index genome: bwaindex.sh
 
-3. Sort and index aligned reads: convert.sh
+3. Align with BWA and BBMAP: bwaalign.sh & bbmapalign.sh
 
-4. Realignment with GATK: gatktarget.sh, gatkrealign.sh
+4. Sort and index aligned reads: convert.sh
 
-5. Variant calling with Strelka and Mutect2: strelkaconfig.sh, strelkarun.sh & mutect2.sh
+5. Realignment with GATK: gatktarget.sh, gatkrealign.sh
 
-6. Intersect variants between alignments: intersect1.sh, intersect2.sh
+6. Variant calling with Strelka and Mutect2: strelkaconfig.sh, strelkarun.sh & mutect2.sh
 
-7. Compile variants from both callers
+7. Intersect variants between alignments: intersect1.sh, intersect2.sh
+
+8. Compile variants from both callers
