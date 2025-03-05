@@ -12,7 +12,7 @@ Using the intersect-then-combine approach detailed in Callari et al, 2017 to cal
 
 5. Add read group info to reads for use with GATK: addrg1.sh
 
-6. Index again to match new headers: reindex.sh #should streamline this process at some point by removing indexing from step 4 or just adding read groups during alignment
+6. Index again to match new headers: reindex.sh (should streamline this process at some point by removing indexing from step 4 or just adding read groups during alignment)
 
 7. Create genome dictionary for use with GATK: gatkref.sh
 
