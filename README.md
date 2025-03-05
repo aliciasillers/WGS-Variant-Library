@@ -12,14 +12,16 @@ Using the intersect-then-combine approach detailed in Callari et al, 2017 to cal
 
 5. Add read group info to reads for use with GATK: addrg1.sh
 
-6. Create genome dictionary for use with GATK: gatkref.sh
+6. Index again to match new headers: reindex.sh #should streamline this process at some point by removing indexing from step 4 or just adding read groups during alignment
 
-7. Register gatk3 jar file: gatkregister.sh
+7. Create genome dictionary for use with GATK: gatkref.sh
 
-8. Realignment with GATK: gatktarget.sh, gatkrealign.sh
+8. Register gatk3 jar file: gatkregister.sh
 
-9. Variant calling with Strelka and Mutect2: strelkaconfig.sh, strelkarun.sh & mutect2.sh
+9. Realignment with GATK: gatktarget.sh, gatkrealign.sh
 
-10. Intersect variants between alignments: intersect1.sh, intersect2.sh
+10. Variant calling with Strelka and Mutect2: strelkaconfig.sh, strelkarun.sh & mutect2.sh
 
-11. Compile variants from both callers
+11. Intersect variants between alignments: intersect1.sh, intersect2.sh
+
+12. Compile variants from both callers
