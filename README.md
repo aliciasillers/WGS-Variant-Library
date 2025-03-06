@@ -4,7 +4,7 @@ Using the intersect-then-combine approach detailed in Callari et al, 2017 to cal
 
 The indel realignment portion requires gatk3, which is no longer suppored by the broad institute. Get the gatk3 jar file here: https://console.cloud.google.com/storage/browser/gatk-software/package-archive/gatk;tab=objects?pli=1&prefix=&forceOnObjectsSortingFiltering=false. Otherwise, skip indel realignment by skipping steps 5 and 7-9 and adjusting input file names for step 10. 
 
-Variant calling with bcftools incorporates ploidy information and will assume human ploidy unless a ploidy file is provided. This file has five columns with no headers. The first has chromosome name, the second has the start coordinate (presumable 1), the third has the end coordinate, the fourth has sex (this is arbitrary in most cases and can be made up), and the fifth has ploidy for that chromosome. The program fasize can be used to get chromosome end coordinates, but a script to do so is not included in this repository.
+Variant calling with bcftools incorporates ploidy information and will assume human ploidy unless a ploidy file is provided. This file has five columns with no headers. The first has chromosome name, the second has the start coordinate (presumably 1), the third has the end coordinate, the fourth has sex (this is arbitrary in most cases and can be made up), and the fifth has ploidy for that chromosome. The program fasize can be used to get chromosome end coordinates, but a script to do so is not included in this repository.
 
 1. Download publicly available WGS data: getdata.sh, fastq.sh
 
