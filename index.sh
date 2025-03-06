@@ -14,7 +14,7 @@
 
 module load samtools
 
-file1=$(ls Grouped/*.bam | sed -n ${SLURM_ARRAY_TASK_ID}p)
-name=$(ls Grouped/*.bam | awk -F'[.]' '{print $1}' | sed -n ${SLURM_ARRAY_TASK_ID}p)
+file1=$(ls Mapped/*[ba].bam | sed -n ${SLURM_ARRAY_TASK_ID}p)
+name=$(ls Mapped/*[ba].bam | awk -F'[.]' '{print $1}' | sed -n ${SLURM_ARRAY_TASK_ID}p)
 
 samtools index $file1 -o $name.bam.bai
