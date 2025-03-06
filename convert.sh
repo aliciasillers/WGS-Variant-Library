@@ -9,12 +9,12 @@
 #SBATCH --error=convert.err # File to which STDERR will be written
 #SBATCH --mail-type=END,FAIL # Type of email notification- BEGIN,END,FAIL,ALL
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
-#SBATCH --time=12:00:00
-#SBATCH --array=1-20
+#SBATCH --time=8:00:00
+#SBATCH --array=1-10
 
 module load samtools
 
-file1=$(ls Mapped/*.sam | sed -n ${SLURM_ARRAY_TASK_ID}p)
-name=$(ls Mapped/*.sam | awk -F'[.]' '{print $1.$2}' | sed -n ${SLURM_ARRAY_TASK_ID}p)
+file1=$(ls Mapped/*.bb1.sam | sed -n ${SLURM_ARRAY_TASK_ID}p)
+name=$(ls Mapped/*.bb1.sam | awk -F'[.]' '{print $1$2}' | sed -n ${SLURM_ARRAY_TASK_ID}p)
 
-samtools sort $file1 --write-index -T ${name}.temp -o ${name}.bam##idx##${name}.bam.bai
+samtools sort $file1 -o $name.bam
