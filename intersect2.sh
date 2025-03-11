@@ -17,4 +17,4 @@ file1=$(ls *bb.bcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
 file2=$(ls *bwa.bcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
 prefix=$(ls *bb.bcf | sed -n ${SLURM_ARRAY_TASK_ID}p | awk -F'[b]' '{print $1}')
 
-bedtools intersect -a BCFOut/$file1 -b BCFOut/$file2 -o $prefix.bcf
+bedtools intersect -a BCFOut/$file1 -b BCFOut/$file2 > $prefix.bcf
