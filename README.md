@@ -12,7 +12,7 @@ Variant calling with bcftools incorporates ploidy information and will assume hu
 
 3. Align with BWA and BBMAP: bwaalign.sh & bbmapalign.sh
 
-4. Sort aligned reads and convert to bam: convert.sh
+4. Sort bbmap reads: sort.sh
 
 5. Add read group info to bbmap reads for compatibility with GATK: addrg1.sh
 
