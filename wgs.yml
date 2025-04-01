@@ -3,7 +3,7 @@ channels:
  - bioconda
  - defaults
  - btrspg
+ - pwwang
 dependencies:
  - java-jdk
  - shikamaru-gatk3
- - strelka
