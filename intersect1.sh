@@ -13,8 +13,8 @@
 
 module load bedtools2
 
-file1=$(ls *bb.vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p)
-file2=$(ls *bwa.vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p)
-prefix=$(ls *bb.vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p | awk -F'[b]' '{print $1}')
+file1=$(ls MutectOut/*bb.vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p)
+file2=$(ls MutectOut/*bwa.vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p)
+prefix=$(ls MutectOut/*bb.vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p | awk -F'[b]' '{print $1}')
 
-bedtools intersect -a MutectOut/$file1 -b MutectOut/$file2 > $prefix.vcf
+bedtools intersect -a $file1 -b $file2 > $prefix.vcf

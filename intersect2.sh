@@ -13,8 +13,8 @@
 
 module load bedtools2
 
-file1=$(ls *bb.bcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
-file2=$(ls *bwa.bcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
-prefix=$(ls *bb.bcf | sed -n ${SLURM_ARRAY_TASK_ID}p | awk -F'[b]' '{print $1}')
+file1=$(ls BCFOut/*bb.bcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
+file2=$(ls BCFOut/*bwa.bcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
+prefix=$(ls BCFOut/*bb.bcf | sed -n ${SLURM_ARRAY_TASK_ID}p | awk -F'[b]' '{print $1}')
 
-bedtools intersect -a BCFOut/$file1 -b BCFOut/$file2 > $prefix.bcf
+bedtools intersect -a $file1 -b $file2 > $prefix.bcf
