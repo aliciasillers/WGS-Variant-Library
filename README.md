@@ -26,6 +26,8 @@ Variant calling with bcftools incorporates ploidy information and will assume hu
 
 10. Variant calling with Mutect2 and BCFtools: mutect2.sh & bcfcall.sh
 
-11. Intersect variants between alignments: intersect1.sh, intersect2.sh
+11. Filter variants: filtermutect.sh & filterbcf.sh
 
-12. Compile variants from both callers
+12. Intersect variants between alignments: intersect1.sh, intersect2.sh
+
+13. Compile variants from both callers: combine.sh
