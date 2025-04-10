@@ -30,4 +30,6 @@ Variant calling with bcftools incorporates ploidy information and will assume hu
 
 12. Intersect variants between alignments: intersect1.sh, intersect2.sh
 
-13. Compile variants from both callers: combine.sh
+13. Compress and index intersected variant files: compress2.sh, index2.sh
+
+14. Compile variants from both callers: combine.sh
