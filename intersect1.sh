@@ -10,6 +10,7 @@
 #SBATCH --mail-type=END,FAIL # Type of email notification- BEGIN,END,FAIL,ALL
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
 #SBATCH --time=12:00:00
+#SBATCH --array=1-80
 
 module load bedtools2
 

@@ -12,7 +12,7 @@
 #SBATCH --time=4:00:00
 #SBATCH --array=1-10
 
-sra=$(cat sralist2.txt | sed -n ${SLURM_ARRAY_TASK_ID}p)
+sra=$(cat sralist1.txt | sed -n ${SLURM_ARRAY_TASK_ID}p)
 
 module load sratoolkit
 

@@ -10,11 +10,12 @@
 #SBATCH --mail-type=END,FAIL # Type of email notification- BEGIN,END,FAIL,ALL
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
 #SBATCH --time=12:00:00
+#SBATCH --array=1-80
 
 module load bedtools2
 
-file1=$(ls BCFOut/*bb.bcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
-file2=$(ls BCFOut/*bwa.bcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
-prefix=$(ls BCFOut/*bb.bcf | sed -n ${SLURM_ARRAY_TASK_ID}p | awk -F'[b]' '{print $1}')
+file1=$(ls BCFOut/*bb.vcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
+file2=$(ls BCFOut/*bwa.vcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
+prefix=$(ls BCFOut/*bb.vcf | sed -n ${SLURM_ARRAY_TASK_ID}p | awk -F'[b]' '{print $1}')
 
-bedtools intersect -a $file1 -b $file2 > $prefix.bcf
+bedtools intersect -a $file1 -b $file2 > $prefix.vcf
