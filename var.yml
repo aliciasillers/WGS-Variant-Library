@@ -7,3 +7,4 @@ channels:
 dependencies:
  - java-jdk
  - shikamaru-gatk3
+ - snpeff
