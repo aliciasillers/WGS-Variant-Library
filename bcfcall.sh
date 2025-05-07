@@ -14,7 +14,7 @@
 
 module load bcftools
 
-file1=$(ls Grouped/*realigned.bam | sed -n ${SLURM_ARRAY_TASK_ID}p)
-prefix=$(ls Grouped/*realigned.bam | awk -F'[./]' '{print $2}' | sed -n ${SLURM_ARRAY_TASK_ID}p)
+file1=$(ls Mapped/*realigned.bam | sed -n ${SLURM_ARRAY_TASK_ID}p)
+prefix=$(ls Mapped/*realigned.bam | awk -F'[./]' '{print $2}' | sed -n ${SLURM_ARRAY_TASK_ID}p)
 
-bcftools mpileup -Ou -f ../Genome/farr1.fa $file1 | bcftools call --ploidy-file ../Genome/ploidy.txt -mv -Ob -o BCFOut/$prefix.bcf
+bcftools mpileup -Ou -f ../Genome/farr1.fa $file1 | bcftools call --ploidy-file ../Genome/ploidy.txt -mv -Ob -o BCFOut/$prefix.vcf
