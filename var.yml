@@ -5,6 +5,6 @@ channels:
  - btrspg
  - pwwang
 dependencies:
- - java-jdk
+ - conda-forge::openjdk
  - shikamaru-gatk3
  - snpeff
