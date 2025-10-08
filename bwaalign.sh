@@ -10,13 +10,15 @@
 #SBATCH --mail-type=END,FAIL # Type of email notification- BEGIN,END,FAIL,ALL
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
 #SBATCH --time=1-00:00:00
-#SBATCH --array=1-168
+#SBATCH --array=1-42
 
 module load bwa
 module load samtools
 
-reads1=$(ls /quobyte/feldmanngrp/BACKED-UP/RawData/HudsonAlpha/20250421/Illumina_Resequencing/*R1.fastq.bz2 | sed -n ${SLURM_ARRAY_TASK_ID}p)
-reads2=$(ls /quobyte/feldmanngrp/BACKED-UP/RawData/HudsonAlpha/20250421/Illumina_Resequencing/*R2.fastq.bz2 | sed -n ${SLURM_ARRAY_TASK_ID}p)
-prefix=$(ls /quobyte/feldmanngrp/BACKED-UP/RawData/HudsonAlpha/20250421/Illumina_Resequencing/*R1.fastq.bz2 | sed -n ${SLURM_ARRAY_TASK_ID}p | awk -F'[._/]' '{print $13$14$18$21$22}')
+L1R1=$(ls /quobyte/feldmanngrp/BACKED-UP/RawData/HudsonAlpha/20250421/Illumina_Resequencing/*L1_R1.fastq.bz2 | sed -n ${SLURM_ARRAY_TASK_ID}p)
+L1R2=$(ls /quobyte/feldmanngrp/BACKED-UP/RawData/HudsonAlpha/20250421/Illumina_Resequencing/*L1_R2.fastq.bz2 | sed -n ${SLURM_ARRAY_TASK_ID}p)
+L2R1=$(ls /quobyte/feldmanngrp/BACKED-UP/RawData/HudsonAlpha/20250421/Illumina_Resequencing/*L2_R1.fastq.bz2 | sed -n ${SLURM_ARRAY_TASK_ID}p)
+L2R2=$(ls /quobyte/feldmanngrp/BACKED-UP/RawData/HudsonAlpha/20250421/Illumina_Resequencing/*L2_R2.fastq.bz2 | sed -n ${SLURM_ARRAY_TASK_ID}p)
+prefix=$(ls /quobyte/feldmanngrp/BACKED-UP/RawData/HudsonAlpha/20250421/Illumina_Resequencing/*L1_R1.fastq.bz2 | sed -n ${SLURM_ARRAY_TASK_ID}p | awk -F'[._/]' '{print $12$13$14$15$16}')
 
-bwa mem -t 8 -R "@RG\tID:${prefix}\tSM:${prefix}" ../Genome/farr1 <(bunzip2 -c $reads1) <(bunzip2 -c $reads2) | samtools sort -@8 -o Mapped/$prefix.bwa.bam -
+bwa mem -t 8 -R "@RG\tID:${prefix}\tSM:${prefix}" ../Genome/farr1 <(cat <(bunzip2 -c $L1R1) <(bunzip2 -c $L2R1)) <(cat <(bunzip2 -c $L1R2) <(bunzip2 -c $L2R2)) | samtools sort -@8 -o Mapped/$prefix.bwa.bam -
