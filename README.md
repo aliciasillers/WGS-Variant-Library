@@ -14,7 +14,7 @@ Variant calling with bcftools incorporates ploidy information and will assume hu
 
 4. Sort bbmap reads: sort.sh
 
-5. Add read group info to bbmap reads for compatibility with GATK: addrg1.sh
+5. Add read group info to bbmap reads for compatibility with GATK: addrg.sh
 
 6. Index reads: index.sh
 
