@@ -10,12 +10,12 @@
 #SBATCH --mail-type=END,FAIL # Type of email notification- BEGIN,END,FAIL,ALL
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
 #SBATCH --time=2:00:00
-#SBATCH --array=1-80
+#SBATCH --array=1-42
 
 module load htslib
 
-file1=$(ls MutectOut/*[0-9].vcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
-file2=$(ls BCFOut/*[0-9].vcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
+file1=$(ls MutectOut/*[!f][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z].vcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
+file2=$(ls BCFOut/*[!f][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z].vcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
 
 bgzip $file1
 bgzip $file2

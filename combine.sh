@@ -14,9 +14,9 @@
 
 module load bcftools
 
-file1=$(ls MutectOut/*[0-9].vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p)
-file2=$(ls BCFOut/*[0-9].vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p)
-prefix=$(ls MutectOut/*[0-9].vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p | awk -F'[./]' '{print $2}')
+file1=$(ls MutectOut/*[!f][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z].vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p)
+file2=$(ls BCFOut/*[!f][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z].vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p)
+prefix=$(ls MutectOut/*[!f][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z].vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p | awk -F'[./]' '{print $2}')
 
 bcftools concat $file1 $file2 -a -d all > VariantsFiltered/$prefix.vcf
 

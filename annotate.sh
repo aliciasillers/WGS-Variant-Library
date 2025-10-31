@@ -10,7 +10,7 @@
 #SBATCH --mail-type=END,FAIL # Type of email notification- BEGIN,END,FAIL,ALL
 #SBATCH --mail-user=asillers@ucdavis.edu # Email to which notifications will be$
 #SBATCH --time=1-00:00:00
-#SBATCH --array=1-80
+#SBATCH --array=1-42
 
 module load conda
 conda activate var
@@ -20,3 +20,4 @@ file1=$(ls VariantsFiltered/*.vcf | sed -n ${SLURM_ARRAY_TASK_ID}p)
 prefix=$(ls VariantsFiltered/*.vcf | sed -n ${SLURM_ARRAY_TASK_ID}p | awk -F'[./]' '{print $2}')
 
 java -Xmx10g -jar ../.conda/envs/var/share/snpeff-5.1-0/snpEff.jar farr1 $file1 > Annotated/$prefix.ann.vcf
+
