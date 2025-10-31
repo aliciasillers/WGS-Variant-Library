@@ -15,6 +15,6 @@
 module load samtools
 
 file=$(ls Mapped/*_bb1.bam | sed -n ${SLURM_ARRAY_TASK_ID}p)
-name=$(ls Mapped/*_bb1.bam | awk -F'[_]' '{print $1}' | sed -n ${SLURM_ARRAY_TASK_ID}p)
+name=$(ls Mapped/*_bb1.bam | awk -F'[_/]' '{print $2}' | sed -n ${SLURM_ARRAY_TASK_ID}p)
 
-samtools addreplacerg -r "ID:${name}" -r "SM:${name}" $file -o $name.bb.bam
+samtools addreplacerg -r "ID:${name}" -r "SM:${name}" $file -o Mapped/$name.bb.bam
