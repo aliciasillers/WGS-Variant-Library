@@ -14,8 +14,8 @@
 
 module load gatk
 
-file1=$(ls MutectOut/*.vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p)
-prefix=$(ls MutectOut/*.vcf.gz | awk -F'[./]' '{print $2}' | sed -n ${SLURM_ARRAY_TASK_ID}p)
+file1=$(ls MutectOut/*[ba].vcf.gz | sed -n ${SLURM_ARRAY_TASK_ID}p)
+prefix=$(ls MutectOut/*[ba].vcf.gz | awk -F'[./]' '{print $2}' | sed -n ${SLURM_ARRAY_TASK_ID}p)
 
 gatk FilterMutectCalls -R ../Genome/farr1.fa -V $file1 -O MutectOut/$prefix.filt.vcf
 
